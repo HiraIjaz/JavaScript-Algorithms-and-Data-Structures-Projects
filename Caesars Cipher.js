@@ -10,8 +10,8 @@ function rot13(str) {
       else {
          num -= 13; 
       }
-      let c = String.fromCharCode(num);
-      result += c;
+      let char = String.fromCharCode(num);
+      result += char;
     }  
     else { 
       result+=str[i]; 
