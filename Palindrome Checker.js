@@ -1,8 +1,8 @@
 function palindrome(str) {
-    str=str.replace(/\s|\W|_/g,"") //removed all the punctuations
-    str=str.toLowerCase() //converted string to lowercase
-    let rstr=str.split("").reverse().join(""); //reversed string
-    return str===rstr; //compared orignal string with reversed string
-  }
+  let orignalStr = str.replace(/\s|\W|_/g, "") //removed all the punctuations
+  orignalStr = orignalStr.toLowerCase() //converted string to lowercase
+  const reversedStr = orignalStr.split("").reverse().join(""); //reversed string
+  return orignalStr === reversedStr; //compared orignal string with reversed string
+}
   
-  console.log(palindrome("A man, a plan, a canal. Panama"));
+console.log(palindrome("A man, a plan, a canal. Panama"));
