@@ -28,8 +28,9 @@ function getChange(Curr, cid, change) {
   return {changeArray,change};       
 }
   
-let Curr = {
-    'PENNY': .01,
+let Curr = { 
+  USD:
+  { 'PENNY': .01,
     'NICKEL': .05,
     'DIME': .10,
     'QUARTER': .25,
@@ -38,6 +39,11 @@ let Curr = {
     'TEN': 10.00,
     'TWENTY': 20.00,
     'ONE HUNDRED': 100.00
+  }
+  'PKR':
+{
+  
+}
 }
 
 function checkCashRegister(price, cash, cid) {
