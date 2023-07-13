@@ -1,5 +1,5 @@
 function rot13(str) {
-  let result = "";
+  let result = '';
 
   for (let i = 0; i < str.length; i++){
     if(str[i].match(/[A-Z]/)){
