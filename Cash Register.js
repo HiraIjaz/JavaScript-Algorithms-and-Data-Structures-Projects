@@ -29,15 +29,15 @@ function getChange(Curr, cid, change) {
 }
   
 let Curr = {
-    "PENNY": .01,
-    "NICKEL": .05,
-    "DIME": .10,
-    "QUARTER": .25,
-    "ONE": 1.00,
-    "FIVE": 5.00,
-    "TEN": 10.00,
-    "TWENTY": 20.00,
-    "ONE HUNDRED": 100.00
+    'PENNY': .01,
+    'NICKEL': .05,
+    'DIME': .10,
+    'QUARTER': .25,
+    'ONE': 1.00,
+    'FIVE': 5.00,
+    'TEN': 10.00,
+    'TWENTY': 20.00,
+    'ONE HUNDRED': 100.00
 }
 
 function checkCashRegister(price, cash, cid) {
