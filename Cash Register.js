@@ -1,36 +1,3 @@
-
-
-let result1 = checkCashRegister(1, 20,'USD', [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
-console.log(result1);
-
-
-function checkCashRegister(price, cash,cidCurrency, cid) {
-  let change = Math.abs(price-cash);
-  let cashSum = totalCash(cid);
-  let curr = {};
-
-  if (cidCurrency == "USD") {
-     curr=Currency.USD;
-   } else { 
-     curr=Currency.PKR;
-     change=Math.floor(change);
-   } 
-
-  if (change > cashSum) {
-    return { status: 'INSUFFICIENT_FUNDS', change:[] }
-  } else if (change.toFixed(2) === cashSum) {
-    return { status: 'CLOSED', change:cid };
-  }
-
-  let changeInfo = getChange(curr, cid, change);
-
-  if (changeInfo.change > 0){
-    return { status: 'INSUFFICIENT_FUNDS', change:[] };
-  }
-
-  return { status: 'OPEN', change:changeInfo.changeArray };
-}
-
 function totalCash(cid) {
   let cashSum = 0;
 
@@ -57,10 +24,10 @@ function getChange(curr, cid, change) {
         changeArray.push(temp);
       }
     }
-
+    
   return {changeArray,change};       
 }
-
+  
 let Currency = { 
   'USD':
   { 'PENNY': .01,
@@ -88,5 +55,35 @@ let Currency = {
 }
 }
 
-let result2 = checkCashRegister(16, 100, "PKR",[["1 RUPEE", 1], ["2 RUPEE", 4], ["FIVE",10], ["TEN", 80], ["ONE HUNDRED", 55], ["5 HUNDRED", 20], ["THOUSAND", 60], ["FIVE THOUSAND", 100]]);
+function checkCashRegister(price, cash,cidCurrency, cid) {
+  let change = Math.abs(price-cash);
+  let cashSum = totalCash(cid);
+  let curr = {};
+  
+  if (cidCurrency == "USD") {
+     curr=Currency.USD;
+   } else { 
+     curr=Currency.PKR;
+     change=Math.floor(change);
+   } 
+
+  if (change > cashSum) {
+    return { status: 'INSUFFICIENT_FUNDS', change:[] }
+  } else if (change.toFixed(2) === cashSum) {
+    return { status: 'CLOSED', change:cid };
+  }
+
+  let changeInfo = getChange(curr, cid, change);
+  
+  if (changeInfo.change > 0){
+    return { status: 'INSUFFICIENT_FUNDS', change:[] };
+  }
+
+  return { status: 'OPEN', change:changeInfo.changeArray };
+}
+  
+  
+let result1 = checkCashRegister(19.5, 20,'USD' [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.1], ["QUARTER", 4.25], ["ONE", 90], ["FIVE", 55], ["TEN", 20], ["TWENTY", 60], ["ONE HUNDRED", 100]]);
+console.log(result1);
+let result2 = checkCashRegister(100, 16, "PKR",[["1 RUPEE", 1], ["2 RUPEE", 4], ["FIVE",10], ["TEN", 80], ["ONE HUNDRED", 55], ["5 HUNDRED", 20], ["THOUSAND", 60], ["FIVE THOUSAND", 100]]);
 console.log(result2);
